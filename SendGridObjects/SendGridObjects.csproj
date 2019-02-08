@@ -4,18 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B3F2699-F720-4498-8044-262EFE110A22}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{3BD8221E-8010-44AA-B1DC-3E7EEC3107C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExampleNet45</RootNamespace>
-    <AssemblyName>ExampleNet45</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>SendGridObjects</RootNamespace>
+    <AssemblyName>SendGridObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,14 +23,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\src\SendGrid\SendGrid.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -49,18 +45,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Example.cs" />
+    <Compile Include="Helpers\Mail\MailHelper.cs" />
+    <Compile Include="Helpers\Mail\Model\ASM.cs" />
+    <Compile Include="Helpers\Mail\Model\Attachment.cs" />
+    <Compile Include="Helpers\Mail\Model\BCCSettings.cs" />
+    <Compile Include="Helpers\Mail\Model\BypassListManagement.cs" />
+    <Compile Include="Helpers\Mail\Model\ClickTracking.cs" />
+    <Compile Include="Helpers\Mail\Model\Content.cs" />
+    <Compile Include="Helpers\Mail\Model\EmailAddress.cs" />
+    <Compile Include="Helpers\Mail\Model\FooterSettings.cs" />
+    <Compile Include="Helpers\Mail\Model\Ganalytics.cs" />
+    <Compile Include="Helpers\Mail\Model\HtmlContent.cs" />
+    <Compile Include="Helpers\Mail\Model\MailSettings.cs" />
+    <Compile Include="Helpers\Mail\Model\OpenTracking.cs" />
+    <Compile Include="Helpers\Mail\Model\Personalization.cs" />
+    <Compile Include="Helpers\Mail\Model\PlainTextContent.cs" />
+    <Compile Include="Helpers\Mail\Model\SandboxMode.cs" />
+    <Compile Include="Helpers\Mail\Model\SpamCheck.cs" />
+    <Compile Include="Helpers\Mail\Model\SubscriptionTracking.cs" />
+    <Compile Include="Helpers\Mail\Model\TrackingSettings.cs" />
+    <Compile Include="Helpers\Mail\SendGridMessage.cs" />
+    <Compile Include="ISendGridClient.cs" />
+    <Compile Include="MimeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reliability\ReliabilitySettings.cs" />
+    <Compile Include="Reliability\RetryDelegatingHandler.cs" />
+    <Compile Include="Response.cs" />
+    <Compile Include="SendGridClient.cs" />
+    <Compile Include="SendGridClientOptions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Helpers\Mail\README.md" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SendGridObjects\SendGridObjects.csproj">
-      <Project>{3bd8221e-8010-44aa-b1dc-3e7eec3107c4}</Project>
-      <Name>SendGridObjects</Name>
-    </ProjectReference>
+    <None Include="SendGrid.ruleset" />
+    <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

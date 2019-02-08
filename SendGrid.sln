@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{71C09624-020B-410E-A8FE-1FD216A1FE31}"
 EndProject
@@ -9,13 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D06BDAE9-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example Projects", "Example Projects", "{D3201F71-A289-4136-AC7E-E5204ACB9183}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendGrid", "src\SendGrid\SendGrid.csproj", "{377C20E4-2297-488F-933B-FB635C56D8FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendGrid", "src\SendGrid\SendGrid.csproj", "{377C20E4-2297-488F-933B-FB635C56D8FC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendGrid.Tests", "tests\SendGrid.Tests\SendGrid.Tests.csproj", "{D89ADAEA-2BE8-49AC-B5BC-6EABBB2AE4E3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleCoreProject", "ExampleCoreProject\ExampleCoreProject.csproj", "{4BD07A97-8AD2-4134-848E-6A74EB992050}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleNet45", "ExampleNet45Project\ExampleNet45.csproj", "{3B3F2699-F720-4498-8044-262EFE110A22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendGridObjects", "SendGridObjects\SendGridObjects.csproj", "{3BD8221E-8010-44AA-B1DC-3E7EEC3107C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,8 +27,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{377C20E4-2297-488F-933B-FB635C56D8FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{377C20E4-2297-488F-933B-FB635C56D8FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{377C20E4-2297-488F-933B-FB635C56D8FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{377C20E4-2297-488F-933B-FB635C56D8FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{377C20E4-2297-488F-933B-FB635C56D8FC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{377C20E4-2297-488F-933B-FB635C56D8FC}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{D89ADAEA-2BE8-49AC-B5BC-6EABBB2AE4E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D89ADAEA-2BE8-49AC-B5BC-6EABBB2AE4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D89ADAEA-2BE8-49AC-B5BC-6EABBB2AE4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3B3F2699-F720-4498-8044-262EFE110A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B3F2699-F720-4498-8044-262EFE110A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B3F2699-F720-4498-8044-262EFE110A22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD8221E-8010-44AA-B1DC-3E7EEC3107C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD8221E-8010-44AA-B1DC-3E7EEC3107C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD8221E-8010-44AA-B1DC-3E7EEC3107C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD8221E-8010-44AA-B1DC-3E7EEC3107C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

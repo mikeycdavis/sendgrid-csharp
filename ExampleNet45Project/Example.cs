@@ -1,4 +1,6 @@
-﻿namespace Example
+﻿using System.IO;
+
+namespace Example
 {
     using System;
     using System.Threading.Tasks;
@@ -11,7 +13,65 @@
     {
         private static void Main()
         {
-            Execute().Wait();
+            MyTest().Wait();
+        }
+
+        private static string _email = "mikeycdavis@gmail.com";
+        private static string _emailName = "Michael Davis";
+
+        static async Task MyTest()
+        {
+            try
+            {
+                // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
+                var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+                var client = new SendGridClient(apiKey);
+
+                // Send a Single Email using the Mail Helper
+                var from = new EmailAddress("test@example.com", "Example User");
+                var subject = "Hello World from the SendGrid CSharp Library Helper!";
+                var to = new EmailAddress(_email, _emailName);
+                var plainTextContent = "Hello, Email from the helper [SendSingleEmailAsync]!";
+                var htmlContent = "<strong>Hello, Email from the helper! [SendSingleEmailAsync]</strong>";
+                var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+
+                var bytes = File.ReadAllBytes("Z:\\Programming\\GitHub\\sendgrid-csharp\\ExampleNet45Project\\Michael_Davis_Technical_resume_2019.pdf");
+                var base64Attachment = Convert.ToBase64String(bytes);
+                bytes = File.ReadAllBytes("Z:\\Programming\\GitHub\\sendgrid-csharp\\ExampleNet45Project\\Faizon.png");
+                var base64Image = Convert.ToBase64String(bytes);
+
+                var myAttachments = new List<Attachment>
+                {
+                    new Attachment
+                    {
+                        Content = base64Attachment,
+                        Disposition = "inline",
+                        ContentId = "Resume",
+                        Filename = "Michael_Davis_Technical_resume_2019.pdf",
+                        Type = "application/pdf"
+                    },
+                    new Attachment
+                    {
+                        Content = base64Image,
+                        Type = "image/png",
+                        Disposition = "inline",
+                        ContentId = "Faizon",
+                        Filename = "Faizon.png"
+                    }
+                };
+                msg.AddAttachments(myAttachments);
+                var response = await client.SendEmailAsync(msg);
+                Console.WriteLine(msg.Serialize());
+                Console.WriteLine(response.StatusCode);
+                Console.WriteLine(response.Headers);
+                Console.WriteLine("\n\nPress <Enter> to continue.");
+                Console.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         static async Task Execute()
